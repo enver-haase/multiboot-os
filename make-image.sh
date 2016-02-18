@@ -1,8 +1,8 @@
 FILENAME=disk.img
 MNT=`pwd`/mnt
-dd if=/dev/zero of=$FILENAME bs=512 count=50000
+dd if=/dev/zero of=$FILENAME bs=512 count=500000
 # This creates one partition, makes it type 'c  W95 FAT32 (LBA)' and activates it (Boot flag).
-echo -e "n\np\n1\n2048\n49999\na\nt\nc\nw\n" | fdisk $FILENAME
+echo -e "n\np\n1\n2048\n499999\na\nt\nc\nw\n" | fdisk $FILENAME
 LOOP0=`losetup -f`
 sudo losetup $LOOP0 disk.img
 LOOP1=`losetup -f`
